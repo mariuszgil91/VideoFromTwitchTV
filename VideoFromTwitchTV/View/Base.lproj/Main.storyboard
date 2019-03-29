@@ -40,6 +40,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="gamesListTableView" destination="c8G-g0-vHq" id="VIK-72-NcR"/>
+                        <outlet property="searchBar" destination="K3O-X6-QAQ" id="6rG-vd-vhh"/>
                         <segue destination="i8p-1U-Fyc" kind="show" identifier="goToVideoView" id="pKk-xf-AMa"/>
                     </connections>
                 </viewController>
@@ -47,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
         </scene>
-        <!--View Controller-->
+        <!--Video View Controller-->
         <scene sceneID="6RD-bf-hj8">
             <objects>
-                <viewController id="i8p-1U-Fyc" sceneMemberID="viewController">
+                <viewController id="i8p-1U-Fyc" customClass="VideoViewController" customModule="VideoFromTwitchTV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MFJ-WK-swe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
