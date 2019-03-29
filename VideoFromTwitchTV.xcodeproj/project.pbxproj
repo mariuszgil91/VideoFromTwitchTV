@@ -56,9 +56,10 @@
 		36DBA9B4224EB25700C7A75F /* VideoFromTwitchTV */ = {
 			isa = PBXGroup;
 			children = (
-				36DBA9C9224EB2DD00C7A75F /* Controller */,
-				36DBA9C8224EB2D500C7A75F /* View */,
+				36DBA9C1224EB25900C7A75F /* Info.plist */,
 				36DBA9C7224EB2CD00C7A75F /* Model */,
+				36DBA9C8224EB2D500C7A75F /* View */,
+				36DBA9C9224EB2DD00C7A75F /* Controller */,
 				36DBA9CA224EB2E800C7A75F /* SupportingFiles */,
 			);
 			path = VideoFromTwitchTV;
@@ -93,7 +94,6 @@
 				36DBA9CB224EB32E00C7A75F /* Default-568h@2x.png */,
 				36DBA9BC224EB25900C7A75F /* Assets.xcassets */,
 				36DBA9BE224EB25900C7A75F /* LaunchScreen.storyboard */,
-				36DBA9C1224EB25900C7A75F /* Info.plist */,
 				36DBA9B5224EB25700C7A75F /* AppDelegate.swift */,
 			);
 			path = SupportingFiles;
