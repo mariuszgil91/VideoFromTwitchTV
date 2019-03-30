@@ -13,9 +13,6 @@ import SwiftyJSON
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
-    let url = URL(string:
-        "https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-150x150.jpg")
-    
     
     // Data model: These strings will be the data for the table view cells
     var gameListArray = [String](){
@@ -107,22 +104,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameTableViewCell
         
-        // set the text from the data model
-        //cell.textLabel?.text = self.gameListArray[indexPath.row]
+
         cell.gameName.text = gameListArray[indexPath.row]
-        //cell.gameViewers.text = topGamesModel.gameViewersArray[indexPath.row]
+
         //cell.gameImage.image = UIImage (named: "bloodborne")
         
         tableView.rowHeight = 100.0
         
-        getData(from: url!) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? self.url!.lastPathComponent)
-            print("Download Finished")
-            DispatchQueue.main.async() {
-                cell.imageView!.image = UIImage(data: data)
-            }
-        }
+//        getData(from: url!) { data, response, error in
+//            guard let data = data, error == nil else { return }
+//            print(response?.suggestedFilename ?? self.url!.lastPathComponent)
+//            print("Download Finished")
+//            DispatchQueue.main.async() {
+//                cell.imageView!.image = UIImage(data: data)
+//            }
+//        }
+        cell.imageView?.downloaded(from: "https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-150x150.jpg")
         return cell
     }
     
@@ -140,3 +137,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 }
 
+//from stack
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
+}
