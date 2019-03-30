@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -14,6 +16,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let gameListArray: [String] = ["DOTA", "Fortnite", "League of Legend", "Sekiro", "Bloodborne"]
     let gameViewersArray: [String] = ["1111111 widzów", "112221 widzów", "11333111 widzów", "11166611 widzów", "1113311 widzów"]
     
+//    let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
+//    let topGamesURL = "https://api.twitch.tv/helix/games/top"
+//    let headers: HTTPHeaders = ["Client-ID" : (self.clientID)]
+//
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
     
@@ -29,6 +35,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         gamesListTableView.delegate = self
         gamesListTableView.dataSource = self
+        
+        getTopGames()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +65,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
         //performSegue(withIdentifier: "goToVideoView", sender: self)
+    }
+    
+    func getTopGames(){
+        let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
+        
+        let urlString = "https://api.twitch.tv/helix/games/top"
+        
+        let headers: HTTPHeaders = [
+            "Client-ID": clientID
+        ]
+        
+        AF.request(urlString, headers: headers).responseJSON { response in
+            debugPrint(response)
+        }
     }
 
 }
