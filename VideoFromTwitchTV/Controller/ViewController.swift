@@ -13,6 +13,9 @@ import SwiftyJSON
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    let url = URL(string:
+        "https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-150x150.jpg")
+    
     
     // Data model: These strings will be the data for the table view cells
     var gameListArray = [String](){
@@ -21,7 +24,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //print(gameListArray.count)
         }
     }
-//    let gameViewersArray: [String] = ["1111111 widzów", "112221 widzów", "11333111 widzów", "11166611 widzów", "1113311 widzów"]
+    
+    var gameIconsListArray = [String]()
+    
+
     
     let topGamesModel = TopGamesModel()
 
@@ -29,7 +35,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cellReuseIdentifier = "cell"
     
     
-    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var gamesListTableView: UITableView!
     
@@ -76,13 +81,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print(json)
         
         for gameID in 0...15{
-            let topGamesJSONArray = json["data"][gameID]["name"].stringValue
-           
-            gameListArray.append(topGamesJSONArray)
-            
+            let topGamesJSON = json["data"][gameID]["name"].stringValue
+            let topGamesIconJSON = json["data"][gameID]["box_art_url"].stringValue
+            gameListArray.append(topGamesJSON)
+            gameIconsListArray.append(topGamesIconJSON)
         }
         
-        //print(gameListArray)
+        print(gameIconsListArray)
         
         
     }
@@ -90,7 +95,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(gameListArray.count)
+        //print(gameListArray.count)
         return gameListArray.count
         
     }
@@ -106,10 +111,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //cell.textLabel?.text = self.gameListArray[indexPath.row]
         cell.gameName.text = gameListArray[indexPath.row]
         //cell.gameViewers.text = topGamesModel.gameViewersArray[indexPath.row]
-        cell.gameImage.image = UIImage (named: "bloodborne")
+        //cell.gameImage.image = UIImage (named: "bloodborne")
         
         tableView.rowHeight = 100.0
         
+        getData(from: url!) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? self.url!.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                cell.imageView!.image = UIImage(data: data)
+            }
+        }
         return cell
     }
     
@@ -120,6 +133,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //performSegue(withIdentifier: "goToVideoView", sender: self)
     }
     
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
 
 
 }
