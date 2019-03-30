@@ -13,13 +13,11 @@ import SwiftyJSON
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Data model: These strings will be the data for the table view cells
-    let gameListArray: [String] = ["DOTA", "Fortnite", "League of Legend", "Sekiro", "Bloodborne"]
-    let gameViewersArray: [String] = ["1111111 widzów", "112221 widzów", "11333111 widzów", "11166611 widzów", "1113311 widzów"]
+//    var gameListArray = [String]()
+//    let gameViewersArray: [String] = ["1111111 widzów", "112221 widzów", "11333111 widzów", "11166611 widzów", "1113311 widzów"]
     
-//    let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
-//    let topGamesURL = "https://api.twitch.tv/helix/games/top"
-//    let headers: HTTPHeaders = ["Client-ID" : (self.clientID)]
-//
+    let topGamesModel = TopGamesModel()
+
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
     
@@ -37,10 +35,55 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         gamesListTableView.dataSource = self
         
         getTopGames()
+        //print(gameListArray)
     }
     
+    func getTopGames(){
+        let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
+        
+        let urlString = "https://api.twitch.tv/helix/games/top"
+        
+        let headers: HTTPHeaders = [
+            "Client-ID": clientID
+        ]
+        
+        AF.request(urlString, headers: headers).responseJSON { response in
+            
+            
+            if response.result.isSuccess{
+                //debugPrint(response)
+                let topGamesJSON = JSON(response.result.value!)
+                self.readTopFamesJSON(json: topGamesJSON)
+            }
+            else{
+                print("connection issues")
+            }
+            
+        }
+        
+    }
+    
+    func readTopFamesJSON(json: JSON){
+        //print(json)
+        
+        for gameID in 0...15{
+            let topGamesJSONArray = json["data"][gameID]["name"].stringValue
+           
+            topGamesModel.gameListArray.append(topGamesJSONArray)
+            
+        }
+        
+        print(topGamesModel.gameListArray)
+        
+        
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gameListArray.count
+//        print(self.topGamesModel.gameListArray)
+        return topGamesModel.gameListArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,8 +95,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // set the text from the data model
         //cell.textLabel?.text = self.gameListArray[indexPath.row]
-        cell.gameName.text = gameListArray[indexPath.row]
-        cell.gameViewers.text = gameViewersArray[indexPath.row]
+        cell.gameName.text = topGamesModel.gameListArray[indexPath.row]
+        cell.gameViewers.text = topGamesModel.gameViewersArray[indexPath.row]
         cell.gameImage.image = UIImage (named: "bloodborne")
         
         tableView.rowHeight = 100.0
@@ -67,19 +110,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //performSegue(withIdentifier: "goToVideoView", sender: self)
     }
     
-    func getTopGames(){
-        let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
-        
-        let urlString = "https://api.twitch.tv/helix/games/top"
-        
-        let headers: HTTPHeaders = [
-            "Client-ID": clientID
-        ]
-        
-        AF.request(urlString, headers: headers).responseJSON { response in
-            debugPrint(response)
-        }
-    }
+
 
 }
 
