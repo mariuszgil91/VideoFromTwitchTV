@@ -12,8 +12,15 @@ import SwiftyJSON
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    
     // Data model: These strings will be the data for the table view cells
-//    var gameListArray = [String]()
+    var gameListArray = [String](){
+        didSet{
+            gamesListTableView.reloadData()
+            //print(gameListArray.count)
+        }
+    }
 //    let gameViewersArray: [String] = ["1111111 widzów", "112221 widzów", "11333111 widzów", "11166611 widzów", "1113311 widzów"]
     
     let topGamesModel = TopGamesModel()
@@ -28,14 +35,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getTopGames()
         
         gamesListTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "gameCell")
         
         gamesListTableView.delegate = self
         gamesListTableView.dataSource = self
         
-        getTopGames()
+        
         //print(gameListArray)
+        
     }
     
     func getTopGames(){
@@ -53,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if response.result.isSuccess{
                 //debugPrint(response)
                 let topGamesJSON = JSON(response.result.value!)
-                self.readTopFamesJSON(json: topGamesJSON)
+                self.readTopGamesJSON(json: topGamesJSON)
             }
             else{
                 print("connection issues")
@@ -63,17 +72,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    func readTopFamesJSON(json: JSON){
+    func readTopGamesJSON(json: JSON){
         //print(json)
         
         for gameID in 0...15{
             let topGamesJSONArray = json["data"][gameID]["name"].stringValue
            
-            topGamesModel.gameListArray.append(topGamesJSONArray)
+            gameListArray.append(topGamesJSONArray)
             
         }
         
-        print(topGamesModel.gameListArray)
+        //print(gameListArray)
         
         
     }
@@ -81,8 +90,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(self.topGamesModel.gameListArray)
-        return topGamesModel.gameListArray.count
+        print(gameListArray.count)
+        return gameListArray.count
         
     }
     
@@ -95,8 +104,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // set the text from the data model
         //cell.textLabel?.text = self.gameListArray[indexPath.row]
-        cell.gameName.text = topGamesModel.gameListArray[indexPath.row]
-        cell.gameViewers.text = topGamesModel.gameViewersArray[indexPath.row]
+        cell.gameName.text = gameListArray[indexPath.row]
+        //cell.gameViewers.text = topGamesModel.gameViewersArray[indexPath.row]
         cell.gameImage.image = UIImage (named: "bloodborne")
         
         tableView.rowHeight = 100.0
@@ -107,6 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        tableView.reloadData()
         //performSegue(withIdentifier: "goToVideoView", sender: self)
     }
     
