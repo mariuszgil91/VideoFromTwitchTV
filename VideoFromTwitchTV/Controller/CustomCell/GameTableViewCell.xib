@@ -28,15 +28,6 @@
                             <constraint firstAttribute="height" constant="40" id="57T-l8-zQc"/>
                             <constraint firstAttribute="width" constant="200" id="hJO-aR-lGy"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcI-8O-Rj5">
-                        <rect key="frame" x="115" y="75" width="31" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="xRI-eq-QEf"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -44,12 +35,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="H6v-RO-kl6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4QS-TJ-gUI"/>
-                    <constraint firstItem="xb0-dV-Zvu" firstAttribute="leading" secondItem="hcI-8O-Rj5" secondAttribute="leading" id="CNc-h7-LpB"/>
                     <constraint firstAttribute="bottom" secondItem="H6v-RO-kl6" secondAttribute="bottom" id="DFR-G2-Ll3"/>
                     <constraint firstAttribute="bottom" secondItem="H6v-RO-kl6" secondAttribute="bottom" id="FvH-6l-eii"/>
                     <constraint firstItem="H6v-RO-kl6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="O1I-MQ-Wsw"/>
-                    <constraint firstAttribute="bottom" secondItem="hcI-8O-Rj5" secondAttribute="bottom" constant="4.5" id="acl-nT-sFX"/>
-                    <constraint firstItem="hcI-8O-Rj5" firstAttribute="top" secondItem="xb0-dV-Zvu" secondAttribute="bottom" constant="30" id="d1W-1S-1YI"/>
                     <constraint firstItem="xb0-dV-Zvu" firstAttribute="leading" secondItem="H6v-RO-kl6" secondAttribute="trailing" constant="15" id="ghX-0W-PH8"/>
                     <constraint firstItem="H6v-RO-kl6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gna-hQ-erZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xb0-dV-Zvu" secondAttribute="trailing" constant="-11" id="lnW-Kj-gYa"/>
@@ -61,7 +49,6 @@
             <connections>
                 <outlet property="gameImage" destination="H6v-RO-kl6" id="xFW-F9-XX7"/>
                 <outlet property="gameName" destination="xb0-dV-Zvu" id="aQy-Jp-bhL"/>
-                <outlet property="gameViewers" destination="hcI-8O-Rj5" id="dXA-pA-LJl"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="54.241071428571423"/>
         </tableViewCell>
