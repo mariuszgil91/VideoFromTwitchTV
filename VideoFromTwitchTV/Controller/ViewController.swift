@@ -46,6 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //cell.textLabel?.text = self.gameListArray[indexPath.row]
         cell.gameName.text = gameListArray[indexPath.row]
         cell.gameViewers.text = gameViewersArray[indexPath.row]
+        cell.gameImage.image = UIImage (named: "bloodborne")
         
         tableView.rowHeight = 100.0
         
