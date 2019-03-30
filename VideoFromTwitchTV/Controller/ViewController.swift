@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // Data model: These strings will be the data for the table view cells
     let gameListArray: [String] = ["DOTA", "Fortnite", "League of Legend", "Sekiro", "Bloodborne"]
+    let gameViewersArray: [String] = ["1111111 widzów", "112221 widzów", "11333111 widzów", "11166611 widzów", "1113311 widzów"]
     
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
@@ -24,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.gamesListTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        gamesListTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "gameCell")
         
         gamesListTableView.delegate = self
         gamesListTableView.dataSource = self
@@ -36,11 +37,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
-        //let cell : UITableViewCell = (self.gamesListTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
+        
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameTableViewCell
         
         // set the text from the data model
-        cell.textLabel?.text = self.gameListArray[indexPath.row]
+        //cell.textLabel?.text = self.gameListArray[indexPath.row]
+        cell.gameName.text = gameListArray[indexPath.row]
+        cell.gameViewers.text = gameViewersArray[indexPath.row]
+        
         tableView.rowHeight = 100.0
         
         return cell
