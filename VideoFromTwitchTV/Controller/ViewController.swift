@@ -36,10 +36,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
-        let cell : UITableViewCell = (self.gamesListTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+        //let cell : UITableViewCell = (self.gamesListTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
         
         // set the text from the data model
         cell.textLabel?.text = self.gameListArray[indexPath.row]
+        tableView.rowHeight = 100.0
         
         return cell
     }
