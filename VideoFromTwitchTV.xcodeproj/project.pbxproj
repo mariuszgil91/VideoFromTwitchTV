@@ -10,13 +10,15 @@
 		3680ABBD224F3CD500B26586 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680ABBB224F3CD500B26586 /* GameTableViewCell.swift */; };
 		3680ABBE224F3CD500B26586 /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3680ABBC224F3CD500B26586 /* GameTableViewCell.xib */; };
 		3680ABC0224F6D8C00B26586 /* TopGamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680ABBF224F6D8C00B26586 /* TopGamesModel.swift */; };
+		36C8990A225294ED00755B59 /* StreamListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C89908225294ED00755B59 /* StreamListTableViewCell.swift */; };
+		36C8990B225294ED00755B59 /* StreamListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C89909225294ED00755B59 /* StreamListTableViewCell.xib */; };
 		36DBA9B6224EB25700C7A75F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBA9B5224EB25700C7A75F /* AppDelegate.swift */; };
 		36DBA9B8224EB25700C7A75F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBA9B7224EB25700C7A75F /* ViewController.swift */; };
 		36DBA9BB224EB25700C7A75F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DBA9B9224EB25700C7A75F /* Main.storyboard */; };
 		36DBA9BD224EB25900C7A75F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36DBA9BC224EB25900C7A75F /* Assets.xcassets */; };
 		36DBA9C0224EB25900C7A75F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DBA9BE224EB25900C7A75F /* LaunchScreen.storyboard */; };
 		36DBA9CC224EB32E00C7A75F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36DBA9CB224EB32E00C7A75F /* Default-568h@2x.png */; };
-		36DBA9CE224EB61D00C7A75F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBA9CD224EB61D00C7A75F /* VideoViewController.swift */; };
+		36DBA9CE224EB61D00C7A75F /* StreamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBA9CD224EB61D00C7A75F /* StreamListViewController.swift */; };
 		81AF3CADCA829F050A746237 /* Pods_VideoFromTwitchTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C611907D3E210AD7C4FDC /* Pods_VideoFromTwitchTV.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,8 @@
 		3680ABBB224F3CD500B26586 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		3680ABBC224F3CD500B26586 /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
 		3680ABBF224F6D8C00B26586 /* TopGamesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopGamesModel.swift; path = VideoFromTwitchTV/Controller/CustomCell/TopGamesModel.swift; sourceTree = SOURCE_ROOT; };
+		36C89908225294ED00755B59 /* StreamListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListTableViewCell.swift; sourceTree = "<group>"; };
+		36C89909225294ED00755B59 /* StreamListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamListTableViewCell.xib; sourceTree = "<group>"; };
 		36DBA9B2224EB25700C7A75F /* VideoFromTwitchTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoFromTwitchTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DBA9B5224EB25700C7A75F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36DBA9B7224EB25700C7A75F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +36,7 @@
 		36DBA9BF224EB25900C7A75F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36DBA9C1224EB25900C7A75F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36DBA9CB224EB32E00C7A75F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		36DBA9CD224EB61D00C7A75F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		36DBA9CD224EB61D00C7A75F /* StreamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListViewController.swift; sourceTree = "<group>"; };
 		4A5C611907D3E210AD7C4FDC /* Pods_VideoFromTwitchTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoFromTwitchTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12AED593F8D225163814367 /* Pods-VideoFromTwitchTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoFromTwitchTV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoFromTwitchTV/Pods-VideoFromTwitchTV.debug.xcconfig"; sourceTree = "<group>"; };
 		A1372B1A07CC2116DFCC043B /* Pods-VideoFromTwitchTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoFromTwitchTV.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoFromTwitchTV/Pods-VideoFromTwitchTV.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +78,15 @@
 				3680ABBC224F3CD500B26586 /* GameTableViewCell.xib */,
 			);
 			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		36C899072252945100755B59 /* Stream List */ = {
+			isa = PBXGroup;
+			children = (
+				36C89908225294ED00755B59 /* StreamListTableViewCell.swift */,
+				36C89909225294ED00755B59 /* StreamListTableViewCell.xib */,
+			);
+			path = "Stream List";
 			sourceTree = "<group>";
 		};
 		36DBA9A9224EB25700C7A75F = {
@@ -126,8 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				36DBA9B7224EB25700C7A75F /* ViewController.swift */,
-				36DBA9CD224EB61D00C7A75F /* VideoViewController.swift */,
+				36DBA9CD224EB61D00C7A75F /* StreamListViewController.swift */,
 				3680ABBA224F3C9C00B26586 /* CustomCell */,
+				36C899072252945100755B59 /* Stream List */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -208,6 +222,7 @@
 				36DBA9CC224EB32E00C7A75F /* Default-568h@2x.png in Resources */,
 				36DBA9BD224EB25900C7A75F /* Assets.xcassets in Resources */,
 				36DBA9BB224EB25700C7A75F /* Main.storyboard in Resources */,
+				36C8990B225294ED00755B59 /* StreamListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +284,10 @@
 			files = (
 				36DBA9B8224EB25700C7A75F /* ViewController.swift in Sources */,
 				36DBA9B6224EB25700C7A75F /* AppDelegate.swift in Sources */,
-				36DBA9CE224EB61D00C7A75F /* VideoViewController.swift in Sources */,
+				36DBA9CE224EB61D00C7A75F /* StreamListViewController.swift in Sources */,
 				3680ABC0224F6D8C00B26586 /* TopGamesModel.swift in Sources */,
 				3680ABBD224F3CD500B26586 /* GameTableViewCell.swift in Sources */,
+				36C8990A225294ED00755B59 /* StreamListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

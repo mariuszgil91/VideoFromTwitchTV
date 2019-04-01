@@ -22,7 +22,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    var gameIconsListArray = [String]()
+    var gameIconsListArray = [String](){
+        didSet{
+            gamesListTableView.reloadData()
+            //print(gameListArray.count)
+        }
+    }
     
 
     
@@ -85,6 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             gameIconsListArray.append(topGamesIconJSON.replacingOccurrences(of: "{width}x{height}", with: "150x150"))
         }
         
+        
         print(gameIconsListArray)
         
         
@@ -114,14 +120,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         cell.imageView?.downloaded(from: gameIconsListArray[indexPath.row])
         
+        
+        
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
-        tableView.reloadData()
-        //performSegue(withIdentifier: "goToVideoView", sender: self)
+        //tableView.reloadData()
+        performSegue(withIdentifier: "goToStreamList", sender: self)
     }
     
 
