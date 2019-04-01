@@ -12,11 +12,12 @@ import SwiftyJSON
 
 class StreamListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var urlString = ""
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("url: \(urlString)")
         // Do any additional setup after loading the view.
         getTopStreams()
     }
@@ -35,7 +36,7 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
     func getTopStreams(){
         let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
         
-        let urlString = "https://api.twitch.tv/helix/streams?game_id=33214"
+        //let urlString = "https://api.twitch.tv/helix/streams?game_id=33214"
         
         let headers: HTTPHeaders = [
             "Client-ID": clientID
