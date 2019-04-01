@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func readTopGamesJSON(json: JSON){
-        //print(json)
+        print(json)
         
         for gameID in 0...15{
             let topGamesJSON = json["data"][gameID]["name"].stringValue
@@ -91,7 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         
-        print(gameIconsListArray)
+        //print(gameIconsListArray)
         
         
     }

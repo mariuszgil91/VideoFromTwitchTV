@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class StreamListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -16,6 +18,7 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        getTopStreams()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,4 +32,45 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
 
+    func getTopStreams(){
+        let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
+        
+        let urlString = "https://api.twitch.tv/helix/streams?game_id=33214"
+        
+        let headers: HTTPHeaders = [
+            "Client-ID": clientID
+        ]
+        
+        AF.request(urlString, headers: headers).responseJSON { response in
+            
+            
+            if response.result.isSuccess{
+                //debugPrint(response)
+                let topStreamsJSON = JSON(response.result.value!)
+                self.readTopStreamsJSON(json: topStreamsJSON)
+            }
+            else{
+                print("connection issues")
+                
+            }
+            
+        }
+        
+    }
+    
+    func readTopStreamsJSON(json: JSON){
+        //print(json)
+        
+        for gameID in 0...15{
+            let topGamesJSON = json["data"][gameID]["name"].stringValue
+            let topGamesIconJSON = json["data"][gameID]["box_art_url"].stringValue
+            
+        }
+        
+        
+        
+        
+        
+    }
+    
 }
