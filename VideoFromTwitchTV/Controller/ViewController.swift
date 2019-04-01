@@ -29,6 +29,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    var gameIDListArray = [String]()
+    
 
     
     let topGamesModel = TopGamesModel()
@@ -86,8 +88,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         for gameID in 0...15{
             let topGamesJSON = json["data"][gameID]["name"].stringValue
             let topGamesIconJSON = json["data"][gameID]["box_art_url"].stringValue
+            let topGamesIDJSON = json["data"][gameID]["id"]
             gameListArray.append(topGamesJSON)
             gameIconsListArray.append(topGamesIconJSON.replacingOccurrences(of: "{width}x{height}", with: "150x150"))
+            gameIDListArray.append(topGamesIconJSON)
         }
         
         

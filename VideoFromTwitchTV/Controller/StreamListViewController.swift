@@ -61,11 +61,11 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
     func readTopStreamsJSON(json: JSON){
         //print(json)
         
-        for gameID in 0...15{
-            let topGamesJSON = json["data"][gameID]["name"].stringValue
-            let topGamesIconJSON = json["data"][gameID]["box_art_url"].stringValue
-            
-        }
+//        for gameID in 0...15{
+//            let topGamesJSON = json["data"][gameID]["name"].stringValue
+//            let topGamesIconJSON = json["data"][gameID]["box_art_url"].stringValue
+//            
+//        }
         
         
         
