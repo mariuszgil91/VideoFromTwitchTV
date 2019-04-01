@@ -68,6 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             else{
                 print("connection issues")
+                
             }
             
         }
@@ -81,7 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let topGamesJSON = json["data"][gameID]["name"].stringValue
             let topGamesIconJSON = json["data"][gameID]["box_art_url"].stringValue
             gameListArray.append(topGamesJSON)
-            gameIconsListArray.append(topGamesIconJSON)
+            gameIconsListArray.append(topGamesIconJSON.replacingOccurrences(of: "{width}x{height}", with: "150x150"))
         }
         
         print(gameIconsListArray)
@@ -110,16 +111,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //cell.gameImage.image = UIImage (named: "bloodborne")
         
         tableView.rowHeight = 100.0
+
+        cell.imageView?.downloaded(from: gameIconsListArray[indexPath.row])
         
-//        getData(from: url!) { data, response, error in
-//            guard let data = data, error == nil else { return }
-//            print(response?.suggestedFilename ?? self.url!.lastPathComponent)
-//            print("Download Finished")
-//            DispatchQueue.main.async() {
-//                cell.imageView!.image = UIImage(data: data)
-//            }
-//        }
-        cell.imageView?.downloaded(from: "https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-150x150.jpg")
         return cell
     }
     
@@ -130,9 +124,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //performSegue(withIdentifier: "goToVideoView", sender: self)
     }
     
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
 
 
 }
