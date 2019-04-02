@@ -12,24 +12,43 @@ import SwiftyJSON
 
 class StreamListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
+    @IBOutlet weak var streamListTableView: UITableView!
+    
     var urlString = ""
+    var topStreamsUserNameArray = [String](){
+        didSet{
+            streamListTableView.reloadData()
+        }
+    }
+    var topStreamsViewersCountArray = [String]()
+    var topStreamsThumbnailsArray = [String]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("url: \(urlString)")
-        // Do any additional setup after loading the view.
+        //print("url: \(urlString)")
+        // Do any additional setup after loading the view.streamCell
+        
+        
+ 
+        streamListTableView.register(UINib(nibName: "StreamListTableViewCell", bundle: nil), forCellReuseIdentifier: "streamCell")
+        streamListTableView.delegate = self
+        streamListTableView.dataSource = self
+        
         getTopStreams()
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return topStreamsUserNameArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "streamCell", for: indexPath)
         
+        tableView.rowHeight = 200
         return cell
     }
 
@@ -62,11 +81,16 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
     func readTopStreamsJSON(json: JSON){
         //print(json)
         
-//        for gameID in 0...15{
-//            let topGamesJSON = json["data"][gameID]["name"].stringValue
-//            let topGamesIconJSON = json["data"][gameID]["box_art_url"].stringValue
-//            
-//        }
+        for streamID in 0...15{
+            var topStreamsUserNameJSON = json["data"][streamID]["user_name"].stringValue
+            var topStreamsViewersCountJSON = json["data"][streamID]["viewer_count"].stringValue
+            var topStreamThumbnailsJSON = json["data"][streamID]["thumbnail_url"].stringValue
+            
+            topStreamsUserNameArray.append(topStreamsUserNameJSON)
+            topStreamsViewersCountArray.append(topStreamsViewersCountJSON)
+            topStreamsThumbnailsArray.append(topStreamThumbnailsJSON.replacingOccurrences(of: "{width}x{height}", with: "250x150"))
+            
+        }
         
         
         

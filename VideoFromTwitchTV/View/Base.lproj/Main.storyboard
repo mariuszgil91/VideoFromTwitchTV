@@ -64,6 +64,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gUk-V5-SEy"/>
                     </view>
+                    <connections>
+                        <outlet property="streamListTableView" destination="O57-0U-hMF" id="svf-nh-Ggo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQk-Me-U3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

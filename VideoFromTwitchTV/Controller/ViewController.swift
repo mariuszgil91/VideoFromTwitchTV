@@ -45,13 +45,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getTopGames()
+        
         
         gamesListTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "gameCell")
         
         gamesListTableView.delegate = self
         gamesListTableView.dataSource = self
         
+        getTopGames()
         
         //print(gameListArray)
         
@@ -116,27 +117,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameTableViewCell
         
-
+        cell.imageView?.downloaded(from: gameIconsListArray[indexPath.row])
         cell.gameName.text = gameListArray[indexPath.row]
 
         //cell.gameImage.image = UIImage (named: "bloodborne")
         
         tableView.rowHeight = 100.0
 
-        cell.imageView?.downloaded(from: gameIconsListArray[indexPath.row])
+        
         
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+        //print("You tapped cell number \(indexPath.row).")
         globalIndexPathRow = indexPath.row
         //tableView.reloadData()
         performSegue(withIdentifier: "goToStreamList", sender: self)
-//        streamViewController.urlString = "https://api.twitch.tv/helix/streams?game_id=\(gameIDListArray[indexPath.row])"
-//
-        print("globalIndexrow: \(globalIndexPathRow)")
+
        
     }
     
