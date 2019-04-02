@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SB4-AL-1Us">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="40.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="70.5"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -43,7 +43,7 @@
                     <constraint firstAttribute="trailing" secondItem="SB4-AL-1Us" secondAttribute="trailing" id="nNE-0W-y3R"/>
                     <constraint firstItem="SB4-AL-1Us" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sBL-da-X79"/>
                     <constraint firstAttribute="bottom" secondItem="kkB-Wx-qMz" secondAttribute="bottom" id="uKX-8Q-wNc"/>
-                    <constraint firstItem="kkB-Wx-qMz" firstAttribute="top" secondItem="SB4-AL-1Us" secondAttribute="bottom" constant="30" id="v0z-bz-iuc"/>
+                    <constraint firstItem="kkB-Wx-qMz" firstAttribute="top" secondItem="SB4-AL-1Us" secondAttribute="bottom" id="v0z-bz-iuc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -52,7 +52,7 @@
                 <outlet property="streamViewersLabel" destination="539-fa-wMe" id="XpJ-X5-nr8"/>
                 <outlet property="streamerNameLabel" destination="kkB-Wx-qMz" id="bbL-HF-3iL"/>
             </connections>
-            <point key="canvasLocation" x="47.826086956521742" y="79.017857142857139"/>
+            <point key="canvasLocation" x="27.536231884057973" y="78.348214285714278"/>
         </tableViewCell>
     </objects>
 </document>

@@ -23,6 +23,7 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
     }
     var topStreamsViewersCountArray = [String]()
     var topStreamsThumbnailsArray = [String]()
+    var globalIndexPathRow = 0
     
     //let streamListCell = StreamListTableViewCell()
 
@@ -57,6 +58,14 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
         
         tableView.rowHeight = 200
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        globalIndexPathRow = indexPath.row
+        performSegue(withIdentifier: "goToPlayer", sender: self)
+        
+        
     }
 
     func getTopStreams(){
@@ -99,10 +108,16 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
             
         }
         
-        
-        
-        
-        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "goToPlayer"){
+            
+            if let playerVC = segue.destination as? PlayerViewController{
+                playerVC.streamURL = "https://player.twitch.tv/?channel=\(topStreamsUserNameArray[globalIndexPathRow])"
+                
+            }
+            
+        }
     }
     
 }

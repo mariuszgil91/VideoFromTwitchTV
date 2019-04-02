@@ -66,11 +66,27 @@
                     </view>
                     <connections>
                         <outlet property="streamListTableView" destination="O57-0U-hMF" id="svf-nh-Ggo"/>
+                        <segue destination="u1u-ux-Vte" kind="show" identifier="goToPlayer" id="875-Dh-QhC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQk-Me-U3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1695.2" y="26.53673163418291"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="QVh-Xr-qyZ">
+            <objects>
+                <viewController id="u1u-ux-Vte" customClass="PlayerViewController" customModule="VideoFromTwitchTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qKc-sO-gqj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="b14-ut-RRv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2T6-k2-PTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2457" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xmb-5u-NtE">

@@ -19,6 +19,7 @@
 		36DBA9C0224EB25900C7A75F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DBA9BE224EB25900C7A75F /* LaunchScreen.storyboard */; };
 		36DBA9CC224EB32E00C7A75F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36DBA9CB224EB32E00C7A75F /* Default-568h@2x.png */; };
 		36DBA9CE224EB61D00C7A75F /* StreamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBA9CD224EB61D00C7A75F /* StreamListViewController.swift */; };
+		36E65EAD2253EFB3001FFB6E /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E65EAC2253EFB3001FFB6E /* PlayerViewController.swift */; };
 		81AF3CADCA829F050A746237 /* Pods_VideoFromTwitchTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C611907D3E210AD7C4FDC /* Pods_VideoFromTwitchTV.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		36DBA9C1224EB25900C7A75F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36DBA9CB224EB32E00C7A75F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		36DBA9CD224EB61D00C7A75F /* StreamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListViewController.swift; sourceTree = "<group>"; };
+		36E65EAC2253EFB3001FFB6E /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		4A5C611907D3E210AD7C4FDC /* Pods_VideoFromTwitchTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoFromTwitchTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12AED593F8D225163814367 /* Pods-VideoFromTwitchTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoFromTwitchTV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoFromTwitchTV/Pods-VideoFromTwitchTV.debug.xcconfig"; sourceTree = "<group>"; };
 		A1372B1A07CC2116DFCC043B /* Pods-VideoFromTwitchTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoFromTwitchTV.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoFromTwitchTV/Pods-VideoFromTwitchTV.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				36DBA9B7224EB25700C7A75F /* ViewController.swift */,
 				36DBA9CD224EB61D00C7A75F /* StreamListViewController.swift */,
+				36E65EAC2253EFB3001FFB6E /* PlayerViewController.swift */,
 				3680ABBA224F3C9C00B26586 /* CustomCell */,
 				36C899072252945100755B59 /* Stream List */,
 			);
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36E65EAD2253EFB3001FFB6E /* PlayerViewController.swift in Sources */,
 				36DBA9B8224EB25700C7A75F /* ViewController.swift in Sources */,
 				36DBA9B6224EB25700C7A75F /* AppDelegate.swift in Sources */,
 				36DBA9CE224EB61D00C7A75F /* StreamListViewController.swift in Sources */,
