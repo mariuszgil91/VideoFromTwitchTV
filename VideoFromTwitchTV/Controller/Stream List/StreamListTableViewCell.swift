@@ -10,6 +10,14 @@ import UIKit
 
 class StreamListTableViewCell: UITableViewCell {
 
+    
+    
+    @IBOutlet weak var streamThumbnail: UIImageView!
+    
+    @IBOutlet weak var streamerNameLabel: UILabel!
+    
+    @IBOutlet weak var streamViewersLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

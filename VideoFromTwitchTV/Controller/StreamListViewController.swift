@@ -24,6 +24,7 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
     var topStreamsViewersCountArray = [String]()
     var topStreamsThumbnailsArray = [String]()
     
+    //let streamListCell = StreamListTableViewCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
         
         getTopStreams()
         
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,16 +48,21 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "streamCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "streamCell", for: indexPath) as! StreamListTableViewCell
+        
+        cell.streamerNameLabel.text = topStreamsUserNameArray[indexPath.row]
+        cell.streamViewersLabel.text = topStreamsViewersCountArray[indexPath.row] + " viewers"
+        cell.imageView?.downloaded(from: topStreamsThumbnailsArray[indexPath.row])
+        
         
         tableView.rowHeight = 200
         return cell
     }
 
     func getTopStreams(){
+        
         let clientID = "gw295s3e3vw3l0ti4wtnj1wuw52e4n"
         
-        //let urlString = "https://api.twitch.tv/helix/streams?game_id=33214"
         
         let headers: HTTPHeaders = [
             "Client-ID": clientID
@@ -82,13 +89,13 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
         //print(json)
         
         for streamID in 0...15{
-            var topStreamsUserNameJSON = json["data"][streamID]["user_name"].stringValue
-            var topStreamsViewersCountJSON = json["data"][streamID]["viewer_count"].stringValue
-            var topStreamThumbnailsJSON = json["data"][streamID]["thumbnail_url"].stringValue
+            let topStreamsUserNameJSON = json["data"][streamID]["user_name"].stringValue
+            let topStreamsViewersCountJSON = json["data"][streamID]["viewer_count"].stringValue
+            let topStreamThumbnailsJSON = json["data"][streamID]["thumbnail_url"].stringValue
             
             topStreamsUserNameArray.append(topStreamsUserNameJSON)
             topStreamsViewersCountArray.append(topStreamsViewersCountJSON)
-            topStreamsThumbnailsArray.append(topStreamThumbnailsJSON.replacingOccurrences(of: "{width}x{height}", with: "250x150"))
+            topStreamsThumbnailsArray.append(topStreamThumbnailsJSON.replacingOccurrences(of: "{width}x{height}", with: "350x150"))
             
         }
         
@@ -99,3 +106,4 @@ class StreamListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 }
+
